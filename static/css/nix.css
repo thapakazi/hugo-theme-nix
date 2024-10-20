@@ -24,6 +24,49 @@ img {
 	padding-top: 70px;
 }
 
+.post-div{
+    flex-direction: row;
+    display: flex;
+    width: auto;
+}
+
+/* TODO fix me, make toc sticky */
+.post-toc {
+  position: relative;
+  top: 40px;
+  font-size: x-small;
+}
+
+
+.post-content{
+    width: 100%;
+}
+
+/* TODO: fix me, i have set 100% for content */
+/* .post-div:first-child{ */
+/*     width: 100%; */
+/* } */
+
+@media (max-width: 768px) {
+    .post-div {
+        flex-direction: column;
+        width: 95%
+    }
+
+    .post-toc {
+        order: -1; /* Move TOC to the top */
+        top: 0;
+        margin-bottom: 20px; /* Optional spacing after TOC */
+        position: relative; /* Change position for mobile view */
+        font-size: x-small; /* Adjust font size for mobile if needed */
+    }
+
+    .post-content {
+        width: 100%;
+    }
+}
+
+
 #green-terminal {
 	color: #00ff00;
 }
@@ -95,8 +138,13 @@ i {
 	padding: 0 5px 0 5px;
 }
 
-.post-summary, .post-content{
+.post-summary, .post-content, .post-toc{
 	clear: both;
+}
+
+.post-toc ul {
+    list-style-position: inside;
+    list-style-type: none;
 }
 
 .post-summary {

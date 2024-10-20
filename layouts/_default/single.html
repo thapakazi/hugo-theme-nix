@@ -15,8 +15,17 @@
             {{ if .Params.showpostdate | default "true" }}
             <span class="post-date">{{ .Date.Format "2006-01-02 " }}</span>
             {{ end }}
-            <div class="post-content">
+            <div class="post-div">
+              <div class="post-content">
                 {{ .Content }}
+              </div>
+              <!-- TODO: fix me, default chars returned is 32 😅 -->
+              {{ if gt (len .TableOfContents) 32 }}
+              <div class="post-toc">
+                <h3>TOC📚</h3>
+                {{ .TableOfContents }}
+              </div>
+              {{ end }}
             </div>
             {{ if ne .Params.nocomments true }}
             <div class="post-comments">
